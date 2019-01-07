@@ -23,6 +23,9 @@ public:
     static void draw();
     static void pollEvents();
 
+    static unsigned int width() { return m_windowWidth; };
+    static unsigned int height() { return m_windowHeight; };
+
     static bool shouldExit();
 private:
     static unsigned int m_windowWidth, m_windowHeight;
