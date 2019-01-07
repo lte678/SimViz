@@ -4,6 +4,11 @@
 
 #include "SimViz.h"
 
+unsigned int SV::m_windowWidth, SV::m_windowHeight;
+std::string SV::m_windowTitle;
+GLFWwindow *SV::m_window;
+
+
 void SV::createWindow() {
     atexit(closeApp);
 
@@ -48,7 +53,7 @@ void SV::setWindowTitle(std::string title) {
 
 bool SV::shouldExit() {
     if(m_window) {
-        return glfwWindowShouldClose(m_window);
+        return glfwWindowShouldClose(m_window) == GLFW_TRUE;
     }
     return false;
 }

@@ -21,11 +21,11 @@ public:
     static void setWindowTitle(std::string title);
 
     static bool shouldExit();
-
-    static void closeApp();
 private:
     static unsigned int m_windowWidth, m_windowHeight;
     static std::string m_windowTitle;
 
     static GLFWwindow *m_window;
+
+    static void closeApp();
 };
