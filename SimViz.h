@@ -20,11 +20,13 @@ public:
     static void setWindowSize(unsigned int width, unsigned int height);
     static void setWindowTitle(std::string title);
 
+    static void draw();
+    static void pollEvents();
+
     static bool shouldExit();
 private:
     static unsigned int m_windowWidth, m_windowHeight;
     static std::string m_windowTitle;
-
     static GLFWwindow *m_window;
 
     static void closeApp();

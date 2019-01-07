@@ -15,17 +15,12 @@ void SV::createWindow() {
     setWindowSize(640, 480);
     setWindowTitle("My Application");
 
-    if(!glfwInit()) {
+    if (!glfwInit()) {
         throw GlfwException();
     }
 
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); //Dont allow the window to be resized
     m_window = glfwCreateWindow(m_windowWidth, m_windowHeight, m_windowTitle.c_str(), nullptr, nullptr);
-
-    while(!glfwWindowShouldClose(m_window)) {
-        glfwSwapBuffers(m_window);
-        glfwPollEvents();
-    }
 }
 
 void SV::createWindow(unsigned int width, unsigned int height) {
@@ -49,6 +44,14 @@ void SV::setWindowSize(unsigned int width, unsigned int height) {
 }
 void SV::setWindowTitle(std::string title) {
     m_windowTitle = title;
+}
+
+void SV::draw() {
+    glfwSwapBuffers(m_window);
+}
+
+void SV::pollEvents() {
+    glfwPollEvents();
 }
 
 bool SV::shouldExit() {
